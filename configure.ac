@@ -2,9 +2,9 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([bm], [m4_esyscmd(tools/get_version.sh)],
+AC_INIT([bmv2], [0.14.0+git20210308203103~223aa430],
         [antonin@barefootnetworks.com])
-AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_INIT_AUTOMAKE([1.9 tar-pax foreign subdir-objects])
 AC_CONFIG_SRCDIR([src/bm_sim/checksums.cpp])
 AC_CONFIG_HEADERS([config.h])
 

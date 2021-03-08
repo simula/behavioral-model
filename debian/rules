@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+DH_VERBOSE = 1
+
+%:
+	dh $@
+
+P4LANG_BUILD_DIR=$(CURDIR)
+
+override_dh_auto_configure:
+	./autogen.sh
+	./configure --with-pdfixed --with-pi --prefix=/usr \
+	--enable-debugger --with-thrift --with-nanomsg "CXXFLAGS=-O0 -g";
+	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && ./autogen.sh && \
+		./configure --without-sysrepo --with-thrift --prefix=/usr "CXXFLAGS=-O0 -g";
+
+override_dh_auto_build:
+	make 
+	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && make ;
+
+override_dh_auto_install:
+	make DESTDIR=$(P4LANG_BUILD_DIR)/ install
+	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && \
+		make DESTDIR=$(P4LANG_BUILD_DIR)/ install
+	find $(CURDIR)/usr/lib/python2.7/dist-packages/ -name "*.pyc" -delete 
+	find $(CURDIR)/usr/lib/python2.7/dist-packages/ -name "*.pyo" -delete 
+
+

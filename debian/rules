@@ -1,28 +1,26 @@
 #!/usr/bin/make -f
+# Based on: https://wiki.geant.org/pages/viewpage.action?pageId=148087125
 
 DH_VERBOSE = 1
 
 %:
-	dh $@
+	dh $@ --parallel
 
-P4LANG_BUILD_DIR=$(CURDIR)
+#P4LANG_BUILD_DIR=$(CURDIR)
 
 override_dh_auto_configure:
 	./autogen.sh
-	./configure --with-pdfixed --with-pi --prefix=/usr \
-	--enable-debugger --with-thrift --with-nanomsg "CXXFLAGS=-O0 -g";
-	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && ./autogen.sh && \
-		./configure --without-sysrepo --with-thrift --prefix=/usr "CXXFLAGS=-O0 -g";
+	./configure --prefix=/usr --with-pdfixed --enable-debugger --with-thrift --with-nanomsg
+	# cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && ./autogen.sh && \
+	#    ./configure --without-sysrepo --with-thrift --prefix=/usr "CXXFLAGS=-O0 -g";
 
-override_dh_auto_build:
-	make 
-	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && make ;
-
-override_dh_auto_install:
-	make DESTDIR=$(P4LANG_BUILD_DIR)/ install
-	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && \
-		make DESTDIR=$(P4LANG_BUILD_DIR)/ install
-	find $(CURDIR)/usr/lib/python2.7/dist-packages/ -name "*.pyc" -delete 
-	find $(CURDIR)/usr/lib/python2.7/dist-packages/ -name "*.pyo" -delete 
-
-
+#override_dh_auto_build:
+#	make 
+#	cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && make ;
+#
+#override_dh_auto_install:
+#	make DESTDIR=$(P4LANG_BUILD_DIR)/ install
+#	# cd $(P4LANG_BUILD_DIR)/targets/simple_switch_grpc && \
+#	#    make DESTDIR=$(P4LANG_BUILD_DIR)/ install
+#	find $(CURDIR)/usr/lib/python2.7/dist-packages/ -name "*.pyc" -delete 
+#	find $(CURDIR)/usr/lib/python2.7/dist-packages/ -name "*.pyo" -delete 

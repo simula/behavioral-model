@@ -25,8 +25,6 @@ Build-Depends: automake,
                libthrift-0.13.0,
                libthrift-dev,
                libtool,
-               nanomsg-utils,
-               p4lang-pi,
                pkg-config,
                protobuf-compiler,
                protobuf-compiler-grpc,
@@ -38,7 +36,7 @@ Vcs-Git: https://github.com/simula/behavioral-model
 Vcs-Browser: https://github.com/simula/behavioral-model/tree/p4-packaging
 
 Package: bmv2
-Architecture: amd64
+Architecture: any
 Depends: libboost-dev,
          libboost-filesystem-dev,
          libboost-program-options-dev,
@@ -57,8 +55,6 @@ Depends: libboost-dev,
          libthrift-0.13.0,
          libthrift-dev,
          libtool,
-         nanomsg-utils,
-         p4lang-pi,
          pkg-config,
          protobuf-compiler,
          protobuf-compiler-grpc,

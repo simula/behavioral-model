@@ -28,11 +28,11 @@ GIT_VERSION="git`env LANG=en date -u +"%Y%m%d%H%M%S"`"
 GIT_ID="${GIT_VERSION}~`cat .git/ORIG_HEAD | cut -b 1-8`"   # Name may not be too long! Just take 8 digits ...
 
 # ------ Change configure.ac ------------------------------------------------
-sed "s#AC_INIT(\[bm[a-z0-9]*\],.*,#AC_INIT([bmv2], [${PACKAGE_VERSION}+$GIT_ID],#g" <configure.ac >configure.ac.new
+sed "s#AC_INIT(\[bm[a-z0-9]*\],.*,#AC_INIT([bm], [${PACKAGE_VERSION}+$GIT_ID],#g" <configure.ac >configure.ac.new
 
 # ------ Create debian/changelog --------------------------------------------
 (
-   echo "bmv2 (${UPSTREAM_VERSION}+${GIT_ID}-1ppa1) unstable; urgency=medium"
+   echo "bm (${UPSTREAM_VERSION}+${GIT_ID}-1ppa1) unstable; urgency=medium"
    echo ""
    echo "  * Self-made package"
    echo ""

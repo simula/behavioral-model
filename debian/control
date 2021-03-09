@@ -1,4 +1,4 @@
-Source: bmv2
+Source: bm
 Section: devel
 Priority: optional
 Maintainer: Thomas Dreibholz <dreibh@simula.no>
@@ -38,7 +38,7 @@ Homepage: https://github.com/simula/behavioral-model
 Vcs-Git: https://github.com/simula/behavioral-model
 Vcs-Browser: https://github.com/simula/behavioral-model/tree/p4-packaging
 
-Package: bmv2
+Package: bm
 Architecture: any
 Depends: libboost-dev,
          libboost-filesystem-dev,
@@ -75,10 +75,6 @@ Description: p4lang behavioral-model
  For information on why we decided to write a new version of the behavioral
  model, please look at the FAQ below.
  .
- his repository contains code for several variations of the behavioral model,
+ This repository contains code for several variations of the behavioral model,
  e.g. simple_switch, simple_switch_grpc, psa_switch, etc.
  See here for more details on the differences between these.
- p4lang behavioral-model provide simple_switch, simple_switch_grpc.
- .
- This is p4lang bmv2 target simple_switch & simple_switch_grpc
- with thrift enabled

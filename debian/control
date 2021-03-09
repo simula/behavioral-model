@@ -30,6 +30,7 @@ Build-Depends: automake,
                protobuf-compiler,
                protobuf-compiler-grpc,
                python3-all,
+               python3-six,
                python3-thrift,
                thrift-compiler
 Standards-Version: 4.5.1.0

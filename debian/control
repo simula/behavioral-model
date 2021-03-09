@@ -28,6 +28,7 @@ Build-Depends: automake,
                pkg-config,
                protobuf-compiler,
                protobuf-compiler-grpc,
+               python3-thrift,
                thrift-compiler
 Standards-Version: 4.5.1.0
 Rules-Requires-Root: no

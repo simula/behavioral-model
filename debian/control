@@ -5,7 +5,7 @@ Maintainer: Thomas Dreibholz <dreibh@simula.no>
 Build-Depends: automake,
                cmake,
                curl,
-               debhelper (>= 9),
+               debhelper (>= 12),
                dh-python,
                git,
                libboost-dev,

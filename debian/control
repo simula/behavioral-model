@@ -39,8 +39,8 @@ Homepage: https://github.com/simula/behavioral-model
 Vcs-Git: https://github.com/simula/behavioral-model
 Vcs-Browser: https://github.com/simula/behavioral-model/tree/p4-packaging
 
-Package: bm
-Architecture: amd64
+Package: p4lang-bmv2
+Architecture: any
 Depends: libboost-dev,
          libboost-filesystem-dev,
          libboost-program-options-dev,

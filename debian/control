@@ -1,5 +1,5 @@
 Source: bm
-Section: devel
+Section: net
 Priority: optional
 Maintainer: Thomas Dreibholz <dreibh@simula.no>
 Build-Depends: automake,
@@ -18,13 +18,11 @@ Build-Depends: automake,
                libgrpc-dev,
                libjudy-dev,
                libnanomsg-dev,
-               libnanomsg5,
                libpcap-dev,
                libprotobuf-dev,
                libprotoc-dev,
                libssl-dev,
-               libthrift-0.13.0,
-               libthrift-dev,
+               libthrift-dev (>= 0.13.0),
                libtool,
                pkg-config,
                protobuf-compiler,
@@ -39,7 +37,46 @@ Homepage: https://github.com/simula/behavioral-model
 Vcs-Git: https://github.com/simula/behavioral-model
 Vcs-Browser: https://github.com/simula/behavioral-model/tree/p4-packaging
 
-Package: p4lang-bmv2
+Package: p4lang-bmv2-bin
+Architecture: amd64 arm64
+Depends: p4lang-bmv2-libs (= ${binary:Version}),
+         python3-bmv2 (= ${binary:Version}),
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Description: p4lang behavioral-model (binaries)
+ This is the second version of the P4 software switch (also known as behavioral
+ model), nicknamed bmv2.
+ .
+ This package contains the binary programs.
+
+Package: p4lang-bmv2-libs
+Section: libs
+Architecture: amd64 arm64
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: p4lang behavioral-model (libraries)
+ This is the second version of the P4 software switch (also known as behavioral
+ model), nicknamed bmv2.
+ .
+ This package contains the libraries.
+
+Package: python3-bmv2
+Section: python
+Architecture: amd64 arm64
+Depends: p4lang-bmv2-libs (= ${binary:Version}),
+         python3,
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Description: p4lang behavioral-model (Python libraries)
+ This is the second version of the P4 software switch (also known as behavioral
+ model), nicknamed bmv2.
+ .
+ This package contains the Python libraries.
+
+Package: p4lang-bmv2-dev
+Section: libdevel
 Architecture: amd64 arm64
 Depends: libboost-dev,
          libboost-filesystem-dev,
@@ -51,7 +88,6 @@ Depends: libboost-dev,
          libgrpc-dev,
          libjudy-dev,
          libnanomsg-dev,
-         libnanomsg5,
          libpcap-dev,
          libprotobuf-dev,
          libprotoc-dev,
@@ -67,15 +103,22 @@ Depends: libboost-dev,
          ${misc:Depends},
          ${shlibs:Depends}
 Description: p4lang behavioral-model
- This is the second version of the P4 software switch (aka behavioral model),
- nicknamed bmv2. It is meant to replace the original version, p4c-behavioral,
- in the long run, although we do not have feature equivalence yet.
- Unlike p4c-behavioral, this new version is static
- (i.e. we do not need to auto-generate new code and recompile every time
- a modification is done to the P4 program) and written in C++11.
- For information on why we decided to write a new version of the behavioral
- model, please look at the FAQ below.
+ This is the second version of the P4 software switch (also known as behavioral
+ model), nicknamed bmv2.
  .
- This repository contains code for several variations of the behavioral model,
- e.g. simple_switch, simple_switch_grpc, psa_switch, etc.
- See here for more details on the differences between these.
+ This package contains the development files.
+
+Package: p4lang-bmv2
+Architecture: amd64 arm64
+Depends: p4lang-bmv2-bin (= ${binary:Version}),
+         p4lang-bmv2-dev (= ${binary:Version}),
+         p4lang-bmv2-libs (= ${binary:Version}),
+         python3-bmv2 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: p4lang behavioral-model (metapackage)
+ This is the second version of the P4 software switch (also known as
+ behavioral model), nicknamed bmv2.
+ .
+ This metapackage depends on the binaries, libraries and development
+ packages.

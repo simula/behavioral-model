@@ -1,5 +1,5 @@
-bm (0.14.0+git20210322214429~fc8c236c-1ppa1) unstable; urgency=medium
+bm (1.14.0+g202103241137~14040a) unstable; urgency=medium
 
   * Self-made package
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Mon, 22 Mar 2021 22:44:29 +0100
+ -- Thomas Dreibholz <dreibh@simula.no>  Wed, 24 Mar 2021 12:37:47 +0100

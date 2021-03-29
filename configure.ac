@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
-AC_INIT([bm], [1.14.0+g202103241244~119c4a],
+AC_INIT([bm], [1.14.0+g202103291201~5cdc57],
         [antonin@barefootnetworks.com])
 AM_INIT_AUTOMAKE([1.9 tar-pax foreign subdir-objects])
 AC_CONFIG_SRCDIR([src/bm_sim/checksums.cpp])

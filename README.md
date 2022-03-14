@@ -1,6 +1,6 @@
 # BEHAVIORAL MODEL (bmv2)
 
-[![Build Status](https://travis-ci.org/p4lang/behavioral-model.svg?branch=master)](https://travis-ci.org/p4lang/behavioral-model)
+[![Build Status](https://app.travis-ci.com/p4lang/behavioral-model.svg?branch=main)](https://app.travis-ci.com/p4lang/behavioral-model)
 
 This is the second version of the reference P4 software switch, nicknamed bmv2
 (for behavioral model version 2). The software switch is written in C++11. It
@@ -23,43 +23,42 @@ performance of bmv2, refer to this [document](docs/performance.md).
 
 ## Dependencies
 
-On Ubuntu 16.04, the following packages are required:
+The following packages are required:
 
-- automake
-- cmake
-- libjudy-dev
-- libgmp-dev
-- libpcap-dev
-- libboost-dev
-- libboost-test-dev
-- libboost-program-options-dev
-- libboost-system-dev
-- libboost-filesystem-dev
-- libboost-thread-dev
-- libevent-dev
-- libtool
-- flex
-- bison
-- pkg-config
-- g++
-- libssl-dev
+### Ubuntu 20.04
+
+```console
+sudo apt-get install -y automake cmake libgmp-dev \
+    libpcap-dev libboost-dev libboost-test-dev libboost-program-options-dev \
+    libboost-system-dev libboost-filesystem-dev libboost-thread-dev \
+    libevent-dev libtool flex bison pkg-config g++ libssl-dev
+```
 
 You also need to install the following from source. Feel free to use the
 install scripts under travis/.
 
 - [thrift 0.11.0](https://github.com/apache/thrift/releases/tag/0.11.0) or later
-  (tested up to 0.12.1)
+  (tested up to 0.13)
 - [nanomsg 1.0.0](https://github.com/nanomsg/nanomsg/releases/tag/1.0.0) or
   later
+
+### Fedora
+
+```console
+sudo dnf install -y automake cmake gmp-devel libpcap-devel \
+    boost-devel boost-system boost-thread boost-filesystem boost-test \
+    libevent-devel libtool flex bison pkg-config g++ openssl-devel \
+    thrift-devel nanomsg-devel
+```
 
 To use the CLI, you will need to install the
 [nnpy](https://github.com/nanomsg/nnpy) Python package. Feel free to use
 travis/install-nnpy.sh
 
 To make your life easier, we provide the *install_deps.sh* script, which will
-install all the dependencies needed on Ubuntu 14.04.
+install all the dependencies needed on Ubuntu 20.04.
 
-Our Travis regression tests now run on Ubuntu 14.04.
+Our Travis regression tests now run on Ubuntu 20.04.
 
 On MacOS you can use the tools/macos/bootstrap_mac.sh script to
 install all the above dependencies using homebrew. Note that in order
@@ -107,7 +106,7 @@ There are currently 2 P4 compilers available for bmv2 on p4lang:
  * [p4c](https://github.com/p4lang/p4c) includes a bmv2 backend and is the
    recommended compiler to use, as it supports both P4_14 and P4_16
    programs. Refer to the
-   [README](https://github.com/p4lang/p4c/blob/master/README.md) for information
+   [README](https://github.com/p4lang/p4c/blob/main/README.md) for information
    on how to install and use p4c. At the moment, the bmv2 p4c backend supports
    the v1model architecture, with some tentative support for the PSA
    architecture. P4_16 programs written for v1model can be executed with the
